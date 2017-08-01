@@ -158,14 +158,59 @@ bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
 bindsym $mod+Shift+0 move container to workspace $w10
 
+# Running selected applications on the selected desktop
+assign [class="Terminator"]     $w2
+assign [class="DBeaver"]  		$w4
+assign [class="Google-chrome"]  $w5
+assign [class="Thunar"]			$w6
+assign [class="Viber"]			$w7
+assign [class="Deadbeef"]		$w8
+
 ##################
 #   binds        #
 ##################
+
+### [xmodmap -pke] avalaible keysyms
+
+# start lock manager
+bindsym $mod+Shift+x exec i3lock
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec /home/b1ngoos/workspace/github/m-arch/scripts/toggletouchpad.sh 
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Calculator
+bindsym XF86Calculator exec galculator
 
 ##################
 #   autorun      #
 ##################
 
+# Set background
+exec_always feh --bg-scale /home/b1ngoos/Pictures/feh-wallpaper.jpg
+
+# Layouts
+exec_always "setxkbmap -layout us,ru"
+exec_always "setxkbmap -option 'grp:alt_shift_toggle'"
+
 ##################
 #   tiling       #
+##################
+
+
+
 ##################
